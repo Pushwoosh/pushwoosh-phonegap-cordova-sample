@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.pushwoosh.plugins.pushwoosh"
+    version="3.5.3">
+
+    <name>Pushwoosh</name>
+
+    <description>
+    This plugin allows you to send and receive push notifications. Powered by Pushwoosh (www.pushwoosh.com).
+    </description>
+
+    <!-- <engines>
+        <engine name="cordova" version=">=3.1.0" />
+    </engines> -->
+
+    <license>MIT</license>
+
+    <js-module src="www/PushNotification.js" name="PushNotification">
+          <clobbers target="plugins.pushNotification" />
+      </js-module>
+
+      <!-- android -->
+    <platform name="android">
+
+      <config-file>
+        <access origin="*.pushwoosh.com" />
+      </config-file>
+
+      <config-file target="AndroidManifest.xml" parent="/manifest">
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+        <uses-permission android:name="android.permission.VIBRATE" />
+
+        <!-- GCM connects to Google Services. -->
+        <uses-permission android:name="android.permission.INTERNET"/>
+
+        <!-- Keeps the processor from sleeping when a message is received. -->
+        <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+        <!-- So the sounds from assets folder could work for notification sounds. -->
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+        <!--
+         Creates a custom permission so only this app can receive its messages.
+
+         NOTE: the permission *must* be called PACKAGE.permission.C2D_MESSAGE,
+         where PACKAGE is the application's package name.
+         -->
+        <permission
+        android:name="$PACKAGE_NAME.permission.C2D_MESSAGE"
+        android:protectionLevel="signature"/>
+        <uses-permission
+        android:name="$PACKAGE_NAME.permission.C2D_MESSAGE"/>
+
+        <!-- This app has permission to register and receive data message. -->
+        <uses-permission
+        android:name="com.google.android.c2dm.permission.RECEIVE"/>
+      </config-file>
+
+      <config-file target="AndroidManifest.xml" parent="/manifest/application/activity">
+        <intent-filter>
+          <action android:name="$PACKAGE_NAME.MESSAGE"/>
+          <category android:name="android.intent.category.DEFAULT"/>
+        </intent-filter>
+      </config-file>
+
+      <config-file target="AndroidManifest.xml" parent="/manifest/application">
+        <activity android:name="com.arellomobile.android.push.PushWebview"/>
+
+        <activity android:name="com.arellomobile.android.push.MessageActivity"/>
+
+        <activity android:name="com.arellomobile.android.push.PushHandlerActivity"/>
+
+        <!--
+         BroadcastReceiver that will receive intents from GCM
+         services and handle them to the custom IntentService.
+
+         The com.google.android.c2dm.permission.SEND permission is necessary
+         so only GCM services can send data messages for the app.
+         -->
+        <receiver
+          android:name="com.google.android.gcm.GCMBroadcastReceiver"
+          android:permission="com.google.android.c2dm.permission.SEND">
+          <intent-filter>
+            <!-- Receives the actual messages. -->
+            <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            <!-- Receives the registration id. -->
+            <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+            <category android:name="$PACKAGE_NAME"/>
+          </intent-filter>
+        </receiver>
+
+        <!--
+         Application-specific subclass of PushGCMIntentService that will
+         handle received messages.
+         -->
+        <service android:name="com.arellomobile.android.push.PushGCMIntentService"/>
+
+            <!--
+              Service for sending location updates
+            -->
+            <service android:name="com.arellomobile.android.push.GeoLocationService"/>
+
+            <receiver android:name="com.arellomobile.android.push.AlarmReceiver"></receiver>
+
+      </config-file>
+
+      <config-file target="res/xml/config.xml" parent="/*">
+        <feature name="PushNotification">
+          <param name="android-package" value="com.pushwoosh.plugin.pushnotifications.PushNotifications" onload="true" />
+        </feature>
+      </config-file>
+
+      <source-file src="src/android/src/com/pushwoosh/plugin/pushnotifications/PushNotifications.java"
+              target-dir="src/com/pushwoosh/plugin/pushnotifications" />
+
+      <source-file src="src/android/lib/Pushwoosh.jar" target-dir="libs" />
+    </platform>
+
+    <!-- ios -->
+    <platform name="ios">
+      <framework src="Security.framework" />
+      <framework src="Storekit.framework" />
+      <framework src="CoreLocation.framework" />
+      <config-file target="config.xml" parent="/*">
+        <feature name="PushNotification">
+          <param name="ios-package" value="PushNotification"/>
+        </feature>
+      </config-file>
+
+      <config-file>
+        <access origin="*.pushwoosh.com" />
+      </config-file>
+
+      <header-file src="src/ios/PushNotification.h" target-dir="ios"/>
+      <source-file src="src/ios/PushNotification.m" target-dir="ios"/>
+      <header-file src="src/ios/Pushwoosh.framework/Versions/A/Headers/PushNotificationManager.h" target-dir="ios"/>
+      <source-file src="src/ios/Pushwoosh.framework/Versions/A/Pushwoosh" framework="true"/>
+    </platform>
+
+  <!-- wp8 -->
+  <platform name="wp8">
+
+    <config-file target="config.xml" parent="/*">
+      <feature name="PushNotification">
+        <param name="wp-package" value="PushNotification"/>
+      </feature>
+    </config-file>
+
+    <config-file>
+      <access origin="*.pushwoosh.com" />
+    </config-file>
+
+    <config-file target="Properties/WMAppManifest.xml" parent="/Deployment/App/Capabilities">
+      <Capability Name="ID_CAP_PUSH_NOTIFICATION"/>
+      <Capability Name="ID_CAP_IDENTITY_DEVICE"/>
+      <Capability Name="ID_CAP_LOCATION"/>
+    </config-file>
+
+    <source-file src="src/wp8/PushNotification.cs" />
+
+    <framework src="src/wp8/PushSDK/Newtonsoft.Json.dll" custom="true" />
+    <framework src="src/wp8/PushSDK/PushSDK.dll" custom="true" />
+  </platform>
+</plugin>

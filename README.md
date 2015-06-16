@@ -1,1 +1,1 @@
-# pushwoosh-phonegap-cordova-sample
+# Pushwoosh Phonegap Cordova Sample
