@@ -18,69 +18,74 @@
  */
 
 function registerPushwooshWP() {
-    var pushNotification = cordova.require("com.pushwoosh.plugins.pushwoosh.PushNotification");
+	var pushNotification = cordova.require("com.pushwoosh.plugins.pushwoosh.PushNotification");
 
-    //set push notification callback before we initialize the plugin
-    document.addEventListener('push-notification', function (event) {
-        //get the notification payload
-        var notification = event.notification;
+	//set push notification callback before we initialize the plugin
+	document.addEventListener('push-notification', function(event) {
+		//get the notification payload
+		var notification = event.notification;
 
-        //display alert to the user for example
-        alert(JSON.stringify(notification));
-    });
+		//display alert to the user for example
+		alert(JSON.stringify(notification));
+	});
 
-    //initialize the plugin
-    pushNotification.onDeviceReady({ appid: "3A43A-A3EAB", serviceName: "" });
+	//initialize the plugin
+	pushNotification.onDeviceReady({
+		appid: "ENTER_PUSHWOOSH_APPID",
+		serviceName: ""
+	});
 
-    //register for pushes
-    pushNotification.registerDevice(
-        function (status) {
-            var deviceToken = status;
-            console.warn('registerDevice: ' + deviceToken);
-            alert("push token is " + deviceToken);
-            onPushwooshWPInitialized();
-        },
-        function (status) {
-            console.warn('failed to register : ' + JSON.stringify(status));
-            alert(JSON.stringify(['failed to register ', status]));
-        }
-    );
+	//register for pushes
+	pushNotification.registerDevice(
+		function(status) {
+			var deviceToken = status;
+			console.warn('registerDevice: ' + deviceToken);
+			alert("push token is " + deviceToken);
+			onPushwooshWPInitialized();
+		},
+		function(status) {
+			console.warn('failed to register : ' + JSON.stringify(status));
+			alert(JSON.stringify(['failed to register ', status]));
+		}
+	);
 }
 
-function onPushwooshWPInitialized()
-{
-    var pushNotification = cordova.require("com.pushwoosh.plugins.pushwoosh.PushNotification");
+function onPushwooshWPInitialized() {
+	var pushNotification = cordova.require("com.pushwoosh.plugins.pushwoosh.PushNotification");
 
-    //if you need push token at a later time you can always get it from Pushwoosh plugin
-    pushNotification.getPushToken(
-        function (token) {
-            alert('push token: ' + token);
-        }
-    );
+	//if you need push token at a later time you can always get it from Pushwoosh plugin
+	pushNotification.getPushToken(
+		function(token) {
+			alert('push token: ' + token);
+		}
+	);
 
-    //and HWID if you want to communicate with Pushwoosh API
-    pushNotification.getPushwooshHWID(
-        function (token) {
-            alert('Pushwoosh HWID: ' + token);
-        }
-    );
+	//and HWID if you want to communicate with Pushwoosh API
+	pushNotification.getPushwooshHWID(
+		function(token) {
+			alert('Pushwoosh HWID: ' + token);
+		}
+	);
 
-    //settings tags
-    pushNotification.setTags({ tagName: "tagValue", intTagName: 10 },
-        function (status) {
-            alert('setTags success: ' + JSON.stringify(status));
-        },
-        function (status) {
-            console.warn('setTags failed');
-        }
-    );
+	//settings tags
+	pushNotification.setTags({
+			tagName: "tagValue",
+			intTagName: 10
+		},
+		function(status) {
+			alert('setTags success: ' + JSON.stringify(status));
+		},
+		function(status) {
+			console.warn('setTags failed');
+		}
+	);
 
-    pushNotification.getTags(
-        function (status) {
-            alert('getTags success: ' + JSON.stringify(status));
-        },
-        function (status) {
-            console.warn('getTags failed');
-        }
-    );
+	pushNotification.getTags(
+		function(status) {
+			alert('getTags success: ' + JSON.stringify(status));
+		},
+		function(status) {
+			console.warn('getTags failed');
+		}
+	);
 }
