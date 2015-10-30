@@ -1,0 +1,34 @@
+{
+    "cordova-plugin-statusbar": {
+        "source": {
+            "type": "local",
+            "path": "/Applications/Intel XDK.app/Contents/Resources/app.nw/components/server/cordova-plugins/cordova-plugin-statusbar"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-device": {
+        "source": {
+            "type": "local",
+            "path": "/Applications/Intel XDK.app/Contents/Resources/app.nw/components/server/cordova-plugins/cordova-plugin-device"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-splashscreen": {
+        "source": {
+            "type": "local",
+            "path": "/Applications/Intel XDK.app/Contents/Resources/app.nw/components/server/cordova-plugins/cordova-plugin-splashscreen"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "com.pushwoosh.plugins.pushwoosh": {
+        "source": {
+            "type": "registry",
+            "id": "pushwoosh-pgb-plugin@latest"
+        },
+        "is_top_level": true,
+        "variables": {}
+    }
+}
