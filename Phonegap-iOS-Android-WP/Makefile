@@ -31,17 +31,11 @@ prepare:
 build:
 	$(CORDOVA) build
 
-clean: clean-plugins
+clean: 
 	rm -rf ./platforms
-	rm  -f ./plugins/fetch.json
-	rm  -f ./plugins/android.json
-	rm  -f ./plugins/ios.json
-	rm  -f ./plugins/wp8.json
-
-clean-plugins:
-	-$(CORDOVA) plugin rm cordova-plugin-device
-	-$(CORDOVA) plugin rm cordova-plugin-console
+	rm -rf ./plugins
 
 plugins:
 	$(CORDOVA) plugin add cordova-plugin-device
 	$(CORDOVA) plugin add cordova-plugin-console
+	$(CORDOVA) plugin add pushwoosh-cordova-plugin
