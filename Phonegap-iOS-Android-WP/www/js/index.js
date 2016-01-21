@@ -31,15 +31,9 @@ function initPushwoosh() {
 		registerPushwooshWP();
 	}
 
-	pushNotification.getLaunchNotification(
-		function(notification) {
-			if (notification != null) {
-				alert(JSON.stringify(notification));
-			} else {
-				alert("No launch notification");
-			}
-		}
-	);
+	if (device.platform == "windows") {
+		registerPushwooshWindows();
+	}
 }
 
 var app = {
