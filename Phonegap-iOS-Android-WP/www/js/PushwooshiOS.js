@@ -18,7 +18,7 @@
  */
 
 function registerPushwooshIOS() {
-	var pushNotification = cordova.require("com.pushwoosh.plugins.pushwoosh.PushNotification");
+	var pushNotification = cordova.require("pushwoosh-cordova-plugin.PushNotification");
 
 	//set push notification callback before we initialize the plugin
 	document.addEventListener('push-notification',
@@ -60,7 +60,7 @@ function registerPushwooshIOS() {
 }
 
 function onPushwooshiOSInitialized(pushToken) {
-	var pushNotification = cordova.require("com.pushwoosh.plugins.pushwoosh.PushNotification");
+	var pushNotification = cordova.require("pushwoosh-cordova-plugin.PushNotification");
 	//retrieve the tags for the device
 	pushNotification.getTags(
 		function(tags) {

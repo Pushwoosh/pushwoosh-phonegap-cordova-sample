@@ -18,7 +18,7 @@
  */
 
 function registerPushwooshWP() {
-	var pushNotification = cordova.require("com.pushwoosh.plugins.pushwoosh.PushNotification");
+	var pushNotification = cordova.require("pushwoosh-cordova-plugin.PushNotification");
 
 	//set push notification callback before we initialize the plugin
 	document.addEventListener('push-notification', function(event) {
@@ -51,7 +51,7 @@ function registerPushwooshWP() {
 }
 
 function onPushwooshWPInitialized() {
-	var pushNotification = cordova.require("com.pushwoosh.plugins.pushwoosh.PushNotification");
+	var pushNotification = cordova.require("pushwoosh-cordova-plugin.PushNotification");
 
 	//if you need push token at a later time you can always get it from Pushwoosh plugin
 	pushNotification.getPushToken(
