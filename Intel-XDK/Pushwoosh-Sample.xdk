@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-blank-cordova-project-lite/sample.zip",
       "projectGuid": "1fb19e89-a9b8-4602-aac9-e5ce0ac76e22",
-      "lastModifiedDate": 1454497135587,
+      "lastModifiedDate": 1464079926515,
       "creationDate": 1446112225916
     },
     "XDK-app-designer": "false",
@@ -18,68 +18,72 @@
     "cordovaPluginsDirectory": "plugins",
     "cordovaPlugins": [
       {
-        "id": "cordova-plugin-statusbar",
-        "name": "StatusBar",
-        "version": "1.0.0",
-        "originType": "cordova.io",
-        "origin": "cordova-plugin-statusbar",
-        "gitref": "",
-        "paramvals": {},
-        "selectedState": "Included",
-        "dependsOn": [],
-        "topLevel": true,
-        "cordovaVersion": ">=3.0.0",
-        "permissions": {},
-        "description": "Cordova StatusBar Plugin",
-        "data": {},
-        "dependedBy": [],
-        "checksum": "b4e7aac6"
-      },
-      {
         "id": "cordova-plugin-device",
-        "version": "1.0.1",
-        "selectedState": "Included",
-        "data": {},
-        "paramvals": {},
-        "dependsOn": [],
-        "dependedBy": [],
+        "name": "Device",
+        "version": "1.1.0",
         "originType": "cordova.io",
         "origin": "cordova-plugin-device",
-        "permissions": {},
-        "topLevel": true,
         "gitref": "",
-        "name": "Device",
-        "description": "Cordova Device Plugin",
-        "checksum": "adfc61ba"
-      },
-      {
-        "id": "cordova-plugin-splashscreen",
-        "version": "2.1.0",
-        "selectedState": "Included",
-        "data": {},
         "paramvals": {},
+        "sourceLocation": "plugins/cordova-plugin-device",
+        "selectedState": "Included",
+        "checksum": "1eae5d64",
         "dependsOn": [],
-        "dependedBy": [],
-        "originType": "cordova.io",
-        "origin": "cordova-plugin-splashscreen",
-        "permissions": {},
         "topLevel": true,
-        "gitref": "",
-        "name": "Splashscreen",
-        "description": "Cordova Splashscreen Plugin",
-        "checksum": "170efb68"
+        "permissions": {},
+        "description": "Cordova Device Plugin",
+        "data": {},
+        "dependedBy": []
       },
       {
-        "id": "com.pushwoosh.plugins.pushwoosh",
+        "id": "cordova-plugin-whitelist",
+        "name": "Whitelist",
+        "version": "1.2.2",
+        "originType": "cordova.io",
+        "origin": "cordova-plugin-whitelist",
+        "gitref": "",
+        "paramvals": {},
+        "sourceLocation": "plugins/cordova-plugin-whitelist",
+        "selectedState": "Included",
+        "checksum": "c0d34e60",
+        "dependsOn": [],
+        "topLevel": true,
+        "permissions": {},
+        "description": "Cordova Network Whitelist Plugin",
+        "data": {},
+        "dependedBy": [],
+        "custom": "true"
+      },
+      {
+        "id": "cordova-plugin-console",
+        "name": "Console",
+        "version": "1.0.3",
+        "originType": "cordova.io",
+        "origin": "cordova-plugin-console",
+        "gitref": "",
+        "paramvals": {},
+        "sourceLocation": "plugins/cordova-plugin-console",
+        "selectedState": "Included",
+        "checksum": "e491457b",
+        "dependsOn": [],
+        "topLevel": true,
+        "permissions": {},
+        "description": "Cordova Console Plugin",
+        "data": {},
+        "dependedBy": [],
+        "custom": "true"
+      },
+      {
+        "id": "pushwoosh-cordova-plugin",
         "name": "Pushwoosh",
-        "version": "4.2.0",
+        "version": "5.0.0",
         "originType": "cordova.io",
         "origin": "pushwoosh-intel-xdk-plugin",
         "gitref": "",
         "paramvals": {},
-        "sourceLocation": "plugins/com.pushwoosh.plugins.pushwoosh",
+        "sourceLocation": "plugins/pushwoosh-cordova-plugin",
         "selectedState": "Included",
-        "checksum": "d9a44197",
+        "checksum": "6bea0628",
         "dependsOn": [],
         "topLevel": true,
         "permissions": {
@@ -103,9 +107,10 @@
             "com.majeur.launcher.permission.UPDATE_BADGE"
           ]
         },
-        "description": "\n\t\tThis plugin allows you to send and receive push notifications. Powered by Pushwoosh (www.pushwoosh.com).\n\t\t",
+        "description": "\n\t\tThis plugin allows you to send and receive push notifications. Powered by Pushwoosh (www.pushwoosh.com).\n\t",
         "data": {},
-        "dependedBy": []
+        "dependedBy": [],
+        "custom": "true"
       }
     ],
     "buildConfigurations": {
@@ -120,7 +125,7 @@
         },
         "isActive_": true,
         "appName_": "Pushwoosh-Sample",
-        "appID_": "xdk.intel.cordova.template.lite",
+        "appID_": "com.pushwoosh.demoapp",
         "appAccess_": {
           "mode": "legacy",
           "network": [
@@ -151,7 +156,7 @@
         },
         "isActive_": true,
         "appName_": "Pushwoosh-Sample",
-        "appID_": "xdk.intel.cordova.template.lite",
+        "appID_": "com.pushwoosh.demoapp",
         "appAccess_": {
           "mode": "legacy",
           "network": [
@@ -176,12 +181,12 @@
         "runtime_": "Cordova 3.x",
         "name_": "iOS",
         "preferences_": {
-          "ios-target": "6",
+          "ios-target": "7",
           "ios-configuration": "adhoc"
         },
         "isActive_": true,
         "appName_": "Pushwoosh-Sample",
-        "appID_": "xdk.intel.cordova.template.lite",
+        "appID_": "com.pushwoosh.demoapp",
         "appAccess_": {
           "mode": "legacy",
           "network": [
@@ -194,12 +199,17 @@
         "splashes_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
-        "iosProvs_": [],
+        "iosProvs_": [
+          {
+            "relPath": "Universal_In_House.mobileprovision",
+            "type": "adhoc"
+          }
+        ],
         "cordovaCLIVersion_": "5.1.1",
-        "appAuthor_": "Intel XDK",
+        "appAuthor_": "Pushwoosh",
         "crosswalkVersion_": "14",
         "appVersion_": "0.0.1",
-        "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser."
+        "appDescription_": "Pushwoosh Intel XDK sample app"
       },
       "Windows8": {
         "platform_": "windows8",
@@ -211,7 +221,7 @@
         },
         "isActive_": true,
         "appName_": "Pushwoosh-Sample",
-        "appID_": "xdk.intel.cordova.template.lite",
+        "appID_": "com.pushwoosh.demoapp",
         "appAccess_": {
           "mode": "legacy",
           "network": [
