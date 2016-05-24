@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 
 function initPushwoosh() {
-  var pushNotification = cordova.require("com.pushwoosh.plugins.pushwoosh.PushNotification");
+  var pushNotification = cordova.require("pushwoosh-cordova-plugin.PushNotification");
   if (device.platform == "Android") {
     registerPushwooshAndroid();
   }
