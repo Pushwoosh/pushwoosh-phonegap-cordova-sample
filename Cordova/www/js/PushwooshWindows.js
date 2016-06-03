@@ -41,7 +41,7 @@ function customStringify(j) {
 
 function customLog(message) {
     console.debug(message);
-    document.getElementById("log").innerHTML += "\n" + message + "\n";
+    document.getElementById("log").innerHTML += message + "<p>";
 }
 
 function registerPushwooshWindows() {
@@ -92,4 +92,15 @@ function onPushwooshWindowsInitialized() {
 		    customLog('Pushwoosh HWID: ' + hwid);
 		}
 	);
+
+	pushNotification.getTags(
+        function (tags) {
+	        customLog("Application tags: " + JSON.stringify(tags));
+	    },
+	    function(error) {
+	        customLog("Failed to get tags");
+	    }
+	);
+
+	pushNotification.setTags({ "FavNumber": "123547", "Alias": "value2" });
 }
