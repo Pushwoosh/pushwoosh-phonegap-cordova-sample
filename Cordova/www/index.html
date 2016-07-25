@@ -28,20 +28,22 @@
     </head>
     <body>
         <div class="app">
-            <h1>Hello World</h1>
             <div id="deviceready" class="blink">
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
             </div>
-        </div>
-        <div id="log">
+            <br>
+            <fieldset>
+                <legend>Pushwoosh status:</legend>
+                Push token: <br>
+                <div style=" height: 50px; width: 200px; font-size: 12px; overflow: auto;" id="pushToken"></div>
+                Push message: <br>
+                <div style=" height: 50px; width: 200px; font-size: 12px; overflow: auto;" id="pushMessage"></div>
+                Push data: <br>
+                <div style=" height: 50px; width: 200px; font-size: 12px; overflow: auto;" id="pushData"></div>
+            </fieldset>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
-
-        <script type="text/javascript" src="js/PushwooshAndroid.js"></script>
-        <script type="text/javascript" src="js/PushwooshiOS.js"></script>
-        <script type="text/javascript" src="js/PushwooshWP.js"></script>
-        <script type="text/javascript" src="js/PushwooshWindows.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </body>
 </html>
