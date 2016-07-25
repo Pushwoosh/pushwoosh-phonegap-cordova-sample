@@ -59,6 +59,13 @@ body {
                                    /* offset horizontal: half of text area width */
 }
 
+.statustext {
+    height: 50px; 
+    width: 90%; 
+    font-size: 12px; 
+    overflow: auto;
+}
+
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
     .app {
