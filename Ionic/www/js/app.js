@@ -6,27 +6,83 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 
+function onPushwooshInitialized(pushNotification) {
+
+  //if you need push token at a later time you can always get it from Pushwoosh plugin
+  pushNotification.getPushToken(
+    function(token) {
+      console.info('push token: ' + token);
+    }
+  );
+
+  //and HWID if you want to communicate with Pushwoosh API
+  pushNotification.getPushwooshHWID(
+    function(token) {
+      console.info('Pushwoosh HWID: ' + token);
+    }
+  );
+
+  //settings tags
+  pushNotification.setTags({
+      tagName: "tagValue",
+      intTagName: 10
+    },
+    function(status) {
+      console.info('setTags success: ' + JSON.stringify(status));
+    },
+    function(status) {
+      console.warn('setTags failed');
+    }
+  );
+
+  pushNotification.getTags(
+    function(status) {
+      console.info('getTags success: ' + JSON.stringify(status));
+    },
+    function(status) {
+      console.warn('getTags failed');
+    }
+  );
+
+  //start geo tracking.
+  //pushNotification.startLocationTracking();
+}
+
 function initPushwoosh() {
   var pushNotification = cordova.require("pushwoosh-cordova-plugin.PushNotification");
-  if (device.platform == "Android") {
-    registerPushwooshAndroid();
-  }
 
-  if (device.platform == "iPhone" || device.platform == "iOS") {
-    registerPushwooshIOS();
-  }
+  //set push notifications handler
+  document.addEventListener('push-notification',
+    function(event) {
+      var message = event.notification.message;
+      var userData = event.notification.userdata;
 
-  if (device.platform == "Win32NT") {
-    registerPushwooshWP();
-  }
+      alert("Push message opened: " + message);
+      console.info(JSON.stringify(event.notification));
 
-  pushNotification.getLaunchNotification(
-    function(notification) {
-      if (notification != null) {
-        alert(JSON.stringify(notification));
-      } else {
-        alert("No launch notification");
+      //dump custom data to the console if it exists
+      if (typeof(userData) != "undefined") {
+        console.warn('user data: ' + JSON.stringify(userData));
       }
+    }
+  );
+
+  //initialize Pushwoosh with projectid: "GOOGLE_PROJECT_ID", appid : "PUSHWOOSH_APP_ID". This will trigger all pending push notifications on start.
+  pushNotification.onDeviceReady({
+    projectid: "60756016005",
+    appid: "4FC89B6D14A655.46488481",
+    serviceName: ""
+  });
+
+  //register for push notifications
+  pushNotification.registerDevice(
+    function(status) {
+      alert("registered with token: " + status.pushToken);
+      onPushwooshInitialized(pushNotification);
+    },
+    function(status) {
+      alert("failed to register: " + status);
+      console.warn(JSON.stringify(['failed to register ', status]));
     }
   );
 }

@@ -19,8 +19,15 @@
     "cordova-plugin-console",
     "cordova-plugin-whitelist",
     "cordova-plugin-splashscreen",
-    "com.ionic.keyboard",
-    "pushwoosh-cordova-plugin"
+    {
+      "id": "pushwoosh-cordova-plugin",
+      "locator": "pushwoosh-cordova-plugin",
+      "variables": {
+        "LOG_LEVEL": "DEBUG",
+        "IOS_FOREGROUND_ALERT_TYPE": "NONE",
+        "ANDROID_FOREGROUND_PUSH": "false"
+      }
+    }
   ],
   "cordovaPlatforms": [
     "android",
