@@ -2,3 +2,6 @@ Intel-XDK/plugins
 Cordova/platforms
 Cordova/plugins
 Cordova/node_modules
+Intel-XDK/.tern-defs
+*.xdke_bak
+*.xdk_bak

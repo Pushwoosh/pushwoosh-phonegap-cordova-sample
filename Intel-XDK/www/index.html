@@ -17,16 +17,19 @@
     </style>
 
     <script src="cordova.js"></script>          <!-- phantom library, needed for Cordova api calls, added during build -->
-    <script src="js/app.js"></script>           <!-- recommended location of your JavaScript code relative to other JS files -->
-    <script src="js/PushwooshAndroid.js"></script>   
-    <script src="js/PushwooshiOS.js"></script>   
-    <script src="js/PushwooshWP.js"></script>   
+    <script src="js/app.js"></script>           <!-- recommended location of your JavaScript code relative to other JS files --> 
     <script src="xdk/init-dev.js"></script>     <!-- normalizes device and document ready events, see README for details -->
 </head>
 
 <body>
-
-    <p>Hello, Cordova!</p>
-
+    <fieldset>
+        <legend>Pushwoosh status:</legend>
+        Push token: <br>
+        <div class="statustext" id="pushToken"></div>
+        Push message: <br>
+        <div class="statustext" id="pushMessage"></div>
+        Push data: <br>
+        <div class="statustext" id="pushData"></div>
+    </fieldset>
 </body>
 </html>

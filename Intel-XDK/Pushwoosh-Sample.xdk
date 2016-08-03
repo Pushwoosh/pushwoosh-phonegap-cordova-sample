@@ -1,11 +1,11 @@
 {
   "project": {
-    "projectSettingsVersion": "2.0.0",
+    "projectSettingsVersion": "3.0.0",
     "creationData": {
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "jsapp/template-blank-cordova-project-lite/sample.zip",
       "projectGuid": "1fb19e89-a9b8-4602-aac9-e5ce0ac76e22",
-      "lastModifiedDate": 1464079926515,
+      "lastModifiedDate": 1470203628793,
       "creationDate": 1446112225916
     },
     "XDK-app-designer": "false",
@@ -76,14 +76,18 @@
       {
         "id": "pushwoosh-cordova-plugin",
         "name": "Pushwoosh",
-        "version": "5.0.0",
+        "version": "6.0.2",
         "originType": "cordova.io",
-        "origin": "pushwoosh-intel-xdk-plugin",
+        "origin": "pushwoosh-cordova-plugin",
         "gitref": "",
-        "paramvals": {},
+        "paramvals": {
+          "LOG_LEVEL": "DEBUG",
+          "IOS_FOREGROUND_ALERT_TYPE": "NONE",
+          "ANDROID_FOREGROUND_PUSH": "false"
+        },
         "sourceLocation": "plugins/pushwoosh-cordova-plugin",
         "selectedState": "Included",
-        "checksum": "6bea0628",
+        "checksum": "b458f859",
         "dependsOn": [],
         "topLevel": true,
         "permissions": {
@@ -94,8 +98,6 @@
             "android.permission.WAKE_LOCK",
             "android.permission.WRITE_EXTERNAL_STORAGE",
             "android.permission.RECEIVE_BOOT_COMPLETED",
-            "android.permission.ACCESS_COARSE_LOCATION",
-            "android.permission.ACCESS_FINE_LOCATION",
             "$PACKAGE_NAME.permission.C2D_MESSAGE",
             "com.google.android.c2dm.permission.RECEIVE",
             "com.sec.android.provider.badge.permission.READ",
@@ -109,50 +111,19 @@
         },
         "description": "\n\t\tThis plugin allows you to send and receive push notifications. Powered by Pushwoosh (www.pushwoosh.com).\n\t",
         "data": {},
-        "dependedBy": [],
-        "custom": "true"
+        "dependedBy": []
       }
     ],
     "buildConfigurations": {
-      "Android-Crosswalk": {
-        "platform_": "android",
-        "runtime_": "Crosswalk with Cordova 3.x",
-        "name_": "Android-Crosswalk",
-        "preferences_": {
-          "android-minSdkVersion": "14",
-          "android-targetSdkVersion": "19",
-          "android-installLocation": "auto"
-        },
-        "isActive_": true,
-        "appName_": "Pushwoosh-Sample",
-        "appID_": "com.pushwoosh.demoapp",
-        "appAccess_": {
-          "mode": "legacy",
-          "network": [
-            "*"
-          ],
-          "intents": [],
-          "navigation": []
-        },
-        "icons_": [],
-        "splashes_": [],
-        "addlPermissions_": "",
-        "excludedLibraries_": "",
-        "cordovaCLIVersion_": "5.1.1",
-        "crosswalkVersion_": "15",
-        "appVersion_": "0.0.1",
-        "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser.",
-        "appAuthor_": "Intel XDK",
-        "appVersionCode_": "1"
-      },
       "Android": {
         "platform_": "android",
         "runtime_": "Cordova 3.x",
         "name_": "Android",
         "preferences_": {
           "android-minSdkVersion": "14",
-          "android-targetSdkVersion": "19",
-          "android-installLocation": "auto"
+          "android-targetSdkVersion": "24",
+          "android-installLocation": "auto",
+          "android-signed": false
         },
         "isActive_": true,
         "appName_": "Pushwoosh-Sample",
@@ -169,36 +140,39 @@
         "splashes_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
+        "certificateId_": "",
         "cordovaCLIVersion_": "5.1.1",
-        "crosswalkVersion_": "14",
         "appVersion_": "0.0.1",
         "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser.",
         "appAuthor_": "Intel XDK",
-        "appVersionCode_": "1"
+        "appVersionCode_": "1",
+        "crosswalkVersion_": "18"
       },
       "iOS": {
         "platform_": "ios",
         "runtime_": "Cordova 3.x",
         "name_": "iOS",
         "preferences_": {
-          "ios-target": "7",
-          "ios-configuration": "adhoc"
+          "ios-configuration": "adhoc",
+          "deployment-target": "7"
         },
         "isActive_": true,
         "appName_": "Pushwoosh-Sample",
         "appID_": "com.pushwoosh.demoapp",
         "appAccess_": {
-          "mode": "legacy",
+          "mode": "whitelist",
           "network": [
             "*"
           ],
           "intents": [],
-          "navigation": []
+          "navigation": [],
+          "properties": {}
         },
         "icons_": [],
         "splashes_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
+        "certificateId_": "",
         "iosProvs_": [
           {
             "relPath": "Universal_In_House.mobileprovision",
@@ -223,17 +197,19 @@
         "appName_": "Pushwoosh-Sample",
         "appID_": "com.pushwoosh.demoapp",
         "appAccess_": {
-          "mode": "legacy",
+          "mode": "whitelist",
           "network": [
             "*"
           ],
           "intents": [],
-          "navigation": []
+          "navigation": [],
+          "properties": {}
         },
         "icons_": [],
         "splashes_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
+        "certificateId_": "",
         "cordovaCLIVersion_": "5.1.1",
         "crosswalkVersion_": "14",
         "appAuthor_": "Intel XDK",
@@ -260,6 +236,7 @@
         "splashes_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
+        "certificateId_": "",
         "appAuthor_": "Intel XDK",
         "appVersion_": "0.0.1",
         "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser."
@@ -284,6 +261,7 @@
         "splashes_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
+        "certificateId_": "",
         "appAuthor_": "Intel XDK",
         "appVersion_": "0.0.1",
         "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser."
@@ -308,6 +286,7 @@
         "splashes_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
+        "certificateId_": "",
         "appAuthor_": "Intel XDK",
         "appVersion_": "0.0.1",
         "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser."
@@ -332,6 +311,7 @@
         "splashes_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
+        "certificateId_": "",
         "appAuthor_": "Intel XDK",
         "appVersion_": "0.0.1",
         "appDescription_": "Universal init code for Intel XDK and Cordova device ready detection, as well as within browser."
@@ -354,6 +334,7 @@
         "splashes_": [],
         "addlPermissions_": "",
         "excludedLibraries_": "",
+        "certificateId_": "",
         "appVersion_": "0.0.0.1",
         "cordovaCLIVersion_": "5.1.1",
         "appAuthor_": "Intel XDK"

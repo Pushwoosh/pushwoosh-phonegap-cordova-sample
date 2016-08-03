@@ -9,10 +9,13 @@
 <author>Intel XDK</author>
 <content src="index.html"/>
 <access origin="*"/>
-<intelxdk:plugin intelxdk:name="Device" intelxdk:value="cordova-plugin-device" intelxdk:version="1.1.0" intelxdk:checksum="1eae5d64"/>
-<intelxdk:plugin intelxdk:name="Whitelist" intelxdk:value="cordova-plugin-whitelist" intelxdk:version="1.2.2" intelxdk:checksum="c0d34e60"/>
-<intelxdk:plugin intelxdk:name="Console" intelxdk:value="cordova-plugin-console" intelxdk:version="1.0.3" intelxdk:checksum="e491457b"/>
-<intelxdk:plugin intelxdk:name="Pushwoosh" intelxdk:value="pushwoosh-intel-xdk-plugin" intelxdk:version="5.0.0" intelxdk:checksum="6bea0628"/>
+<intelxdk:plugin intelxdk:name="Device" intelxdk:value="cordova-plugin-device" intelxdk:version="1.1.0" intelxdk:checksum="1eae5d64" intelxdk:type="file"/>
+<intelxdk:plugin intelxdk:name="Whitelist" intelxdk:value="cordova-plugin-whitelist" intelxdk:version="1.2.2" intelxdk:checksum="c0d34e60" intelxdk:type="file"/>
+<intelxdk:plugin intelxdk:name="Console" intelxdk:value="cordova-plugin-console" intelxdk:version="1.0.3" intelxdk:checksum="e491457b" intelxdk:type="file"/>
+<intelxdk:plugin intelxdk:name="Pushwoosh" intelxdk:value="pushwoosh-cordova-plugin" intelxdk:version="6.0.2" intelxdk:checksum="1cb8b4d9" intelxdk:type="file">
+<intelxdk:param intelxdk:name="LOG_LEVEL" intelxdk:value="DEBUG"/>
+<intelxdk:param intelxdk:name="IOS_FOREGROUND_ALERT_TYPE" intelxdk:value="NONE"/>
+<intelxdk:param intelxdk:name="ANDROID_FOREGROUND_PUSH" intelxdk:value="false"/></intelxdk:plugin>
 <preference name="windows-publisher-display-name"/>
 <!--creationInfo:{"src":"jsapp/template-blank-cordova-project-lite/sample.zip","projectTypeName":"com.intel.xdk.projecttype.jsapp"}-->
 <preference name="debuggable" value="false"/>
