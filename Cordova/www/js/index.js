@@ -76,14 +76,29 @@ function initPushwoosh() {
 				console.warn('user data: ' + JSON.stringify(userData));
 			}
 		}
-	);
+    );
+
+    document.addEventListener('push-receive',
+        function (event) {
+            var message = event.notification.message;
+            var userData = event.notification.userdata;
+
+            document.getElementById("pushMessage").innerHTML = message + "<p>";
+            document.getElementById("pushData").innerHTML = JSON.stringify(event.notification) + "<p>";
+
+            //dump custom data to the console if it exists
+            if (typeof (userData) != "undefined") {
+                console.warn('user data: ' + JSON.stringify(userData));
+            }
+        }
+    );
 
 	//initialize Pushwoosh with projectid: "GOOGLE_PROJECT_ID", appid : "PUSHWOOSH_APP_ID". This will trigger all pending push notifications on start.
-	pushNotification.onDeviceReady({
-		projectid: "60756016005",
-		appid: "60CBF-53954",
-		serviceName: ""
-	});
+    pushNotification.onDeviceReady({
+        projectid: "60756016005",
+        appid: "60CBF-53954",
+        serviceName: ""
+    });
 
 	//register for push notifications
 	pushNotification.registerDevice(
@@ -108,8 +123,17 @@ var app = {
 	// Bind any events that are required on startup. Common events are:
 	// 'load', 'deviceready', 'offline', and 'online'.
 	bindEvents: function() {
-		document.addEventListener('deviceready', this.onDeviceReady, false);
-	},
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+
+        //Only for Windows
+        document.addEventListener('activated', this.onAppActivated, false);
+    },
+
+    onAppActivated: function (args) {
+        var pushNotification = cordova.require("pushwoosh-cordova-plugin.PushNotification");
+        pushNotification.onAppActivated(args.arguments);
+    },
+
 	// deviceready Event Handler
 	//
 	// The scope of 'this' is the event. In order to call the 'receivedEvent'
