@@ -83,6 +83,21 @@ function initPushwoosh() {
 			}
 		}
 	);
+    
+    document.addEventListener('push-receive',
+        function (event) {
+            var message = event.notification.message;
+            var userData = event.notification.userdata;
+                              
+            document.getElementById("pushMessage").innerHTML = message + "<p>";
+            document.getElementById("pushData").innerHTML = JSON.stringify(event.notification) + "<p>";
+                              
+            //dump custom data to the console if it exists
+            if (typeof (userData) != "undefined") {
+                console.warn('user data: ' + JSON.stringify(userData));
+            }
+        }
+    );
 
 	//initialize Pushwoosh with projectid: "GOOGLE_PROJECT_ID", appid : "PUSHWOOSH_APP_ID". This will trigger all pending push notifications on start.
 	pushNotification.onDeviceReady({
