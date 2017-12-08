@@ -8,12 +8,12 @@
         Pushwoosh
     </author>
     <content src="index.html" />
-
-    <plugin name="pushwoosh-cordova-plugin">
+    <access origin="*" />
+    
+    <plugin name="pushwoosh-pgb-plugin">
         <variable name="LOG_LEVEL" value="DEBUG" />
         <variable name="IOS_FOREGROUND_ALERT_TYPE" value="BANNER" />
         <variable name="ANDROID_FOREGROUND_PUSH" value="false" />
     </plugin>
 
-    <access origin="*" />
 </widget>
