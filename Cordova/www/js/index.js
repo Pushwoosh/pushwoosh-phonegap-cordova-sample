@@ -17,6 +17,10 @@
  * under the License.
  */
 
+function testFunction(params) {
+    alert("Bridge is working! " + params.param1 + " " + params.param2);
+}
+
  function onPushwooshInitialized(pushNotification) {
 
 	//if you need push token at a later time you can always get it from Pushwoosh plugin
@@ -54,6 +58,8 @@
 			console.warn('getTags failed');
 		}
 	);
+
+	pushNotification.addJavaScriptInterface('testBridge');
 
 	//start geo tracking.
 	pushNotification.startLocationTracking();
