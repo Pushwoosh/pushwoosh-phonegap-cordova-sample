@@ -132,7 +132,7 @@ var app = {
         document.addEventListener('deviceready', this.onDeviceReady, false);
 
         //Only for Windows
-        document.addEventListener('activated', this.onAppActivated, false);
+        //document.addEventListener('activated', this.onAppActivated, false);
     },
 
     onAppActivated: function (args) {
