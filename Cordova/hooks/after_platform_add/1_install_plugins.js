@@ -9,7 +9,8 @@ var pluginlist = [
 	"cordova-plugin-device",
 	"cordova-plugin-console",
 	"cordova-plugin-whitelist",
-	"pushwoosh-cordova-plugin"
+	"pushwoosh-cordova-plugin",
+	"pushwoosh-geozones-cordova-plugin"
 ];
 
 var exec = require('child_process').exec;

@@ -62,7 +62,8 @@ function testFunction(params) {
 	pushNotification.addJavaScriptInterface('testBridge');
 
 	//start geo tracking.
-	pushNotification.startLocationTracking();
+	var pushwooshGeozones = cordova.require("pushwoosh-geozones-cordova-plugin.PushwooshGeozones");
+	pushwooshGeozones.startLocationTracking();
 }
 
 function initPushwoosh() {
