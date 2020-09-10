@@ -15,4 +15,5 @@
     </plugin>
     <access origin="*" />
     <plugin name="pushwoosh-geozones-cordova-plugin" />
+    <plugin name="cordova-plugin-androidx" />
 </widget>
